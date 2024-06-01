@@ -1,0 +1,107 @@
+<canvas id="canvas" width="1000"  height="1000"></canvas>
+<img src="images/spaceship.png" id="spaceship">
+<button  id="left_button" style="position: absolute;left:50;top:500 ;">
+<img src="images/left_arrow.webp" width="30"> 
+</button>
+<button id="right_button" style="position: absolute;left:200;top:500 ;">
+    <img src="images/right_arrow.webp" width="30"> 
+</button>
+<img id="bolet"src="images/bolet.png"width="20"style="position: absolute;left:100;top:130 ;" hidden>
+<button id="missile">
+<img src="images/missile.png"width="30"style="position: absolute;left:130;top:500 ;">
+</button>
+
+    <img id="zombi"src="images/zombi.png"width="50"style="position: absolute;left:0;top:0 ;" hidden>
+    
+    
+
+<script>
+    let canvas = document.getElementById('canvas')
+    let context = canvas.getContext('2d')
+    
+    context.fillStyle = 'blue'
+    // context.fillRect(100, 100, 50, 50 )
+    let img = document.getElementById('spaceship')
+    img.addEventListener('load', e => {
+        context.drawImage(img, 130, 400)
+    })
+
+    let imgzombi=document.getElementById("zombi")
+        imgzombi.addEventListener('load', e=>{
+            drawZombies()
+        })
+
+    function drawZombies(){
+        for(i=0;i <= 4;i++)
+        for(j=0;j <= 9;j++){
+        context.drawImage(imgzombi,j*40,i*40,40,40)
+        }
+    }
+
+    
+
+
+    let x = 130
+    let y = 400
+
+    window.addEventListener('keypress', e => {
+        if(e.key == "a" ){
+            context.clearRect(0, 0, canvas.width, canvas.height)
+            x = x - 10
+            context.drawImage(img, x, y)
+        }  if(e.key == "d" ){
+            context.clearRect(0, 0, canvas.width, canvas.height)
+            x = x + 10
+            context.drawImage(img, x, y)
+        } if(e.key == "w" ){
+            context.clearRect(0, 0, canvas.width, canvas.height)
+            y = y - 10
+            context.drawImage(img, x, y) 
+        } if(e.key == "s" ){
+            context.clearRect(0, 0, canvas.width, canvas.height)
+            y = y + 10
+          context.drawImage(img, x, y)
+        }
+        drawZombies()
+    }
+        
+    )
+
+    let left_button = document.getElementById("left_button")
+    left_button.addEventListener("click", e => {
+        context.clearRect(0, 0, canvas.width, canvas.height)
+            x = x - 10
+            context.drawImage(img, x, y)
+            drawZombies()
+    })
+    let right_button = document.getElementById("right_button")
+    right_button.addEventListener("click", e => {
+        context.clearRect(0, 0, canvas.width, canvas.height)
+            x = x + 10
+            context.drawImage(img, x, y)
+            drawZombies()
+    })
+    let missile = document.getElementById("missile")
+    missile.addEventListener("click", e => {
+        context.clearRect(0, 0, canvas.width, canvas.height)
+        let imgBolet = document.getElementById('bolet')
+        context.drawImage(imgBolet, x+5, y-20, 20,20) 
+        context.drawImage(img, x, y)
+        drawZombies()
+        let bolety = y-40
+        
+        let timer = window.setInterval(() => {
+            context.clearRect(0, 0, canvas.width, canvas.height)
+            context.drawImage(imgBolet, x+5, bolety, 20,20) 
+            bolety = bolety -10 
+            context.drawImage(img, x, y)
+            drawZombies()
+            if (bolety < 0) {
+                window.clearInterval(timer)
+            }
+        }, 200)
+
+    })
+
+    
+</script>

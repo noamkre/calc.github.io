@@ -1,0 +1,47 @@
+<label>Enter a number:</label><input type="number" id="num1"><br>
+<label>Enter a number:</label><input type="number" id="num2"><br>
+<button onclick="
+let x = Number(document.getElementById('num1').value)
+let y = Number(document.getElementById('num2').value)
+let z = x + y
+let result = document.getElementById('result')
+result.style.fontSize = 30
+result.innerText = z
+">
++
+</button>
+<button onclick="
+x = Number(document.getElementById('num1').value)
+y = Number(document.getElementById('num2').value)
+z = x - y
+document.getElementById('result').innerText =z">
+
+- 
+</button>
+<button onclick="
+    x = Number(document.getElementById('num1').value)
+    y = Number(document.getElementById('num2').value)
+    z = x * y
+    document.getElementById('result').innerText =z">
+
+    &times;
+</button>
+<button onclick="
+    x = Number(document.getElementById('num1').value)
+    y = Number(document.getElementById('num2').value)
+    z = x / y
+    document.getElementById('result').innerText =z">
+
+&div;
+</button>
+<button onclick="
+    document.getElementById('num1').value =  ''
+    document.getElementById('num2').value =  ''
+    document.getElementById('result').innerText =  ''
+
+">
+reset
+</button><br>
+<span id="result"></span>
+
+
