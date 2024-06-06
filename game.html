@@ -6,23 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <canvas id="canvas" width="1000"  height="1000"></canvas>
+    <canvas id="canvas" width="1000" height="1000"></canvas>
     <img src="images/spaceship.png" id="spaceship">
-    <button  id="left_button" style="position: absolute;left:50;top:500 ;">
-    <img src="images/left_arrow.webp" width="30"> 
+    <button id="left_button" style="position: absolute; left:30px; top:500px;">
+        <img src="images/left_arrow.webp" width="30"> 
     </button>
-    <button id="right_button" style="position: absolute;left:200;top:500 ;">
+    <button id="right_button" style="position: absolute;left:200px; top:500px;">
         <img src="images/right_arrow.webp" width="30"> 
     </button>
-    <img id="bolet"src="images/bolet.png"width="20"style="position: absolute;left:100;top:130 ;" hidden>
+    <img id="bolet" src="images/bolet.png" width="20" style="position: absolute; left:100px; top:130px;" hidden>
     <button id="missile">
-    <img src="images/missile.png"width="30"style="position: absolute;left:130;top:500 ;">
+        <img src="images/missile.png" width="30" style="position: absolute; left:130px; top:500px;">
     </button>
-
-    <img id="zombi"src="images/zombi.png"width="50"style="position: absolute;left:0;top:0 ;" hidden>
-    
-    
-
+    <img id="zombi" src="images/zombi.png" width="50" style="position: absolute; left:0; top:0;" hidden>
+ 
 <script>
     let canvas = document.getElementById('canvas')
     let context = canvas.getContext('2d')
